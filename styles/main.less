@@ -1,0 +1,314 @@
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	outline: none;
+	color: #fcb034;
+}
+table {
+	border-collapse: collapse;
+}
+td {
+	padding: 0;
+}
+img {
+	border: 0;
+	display: block;
+}
+input, textarea, button, select {
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 1px solid #ccc;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+input[type=submit], button {
+	cursor: pointer;
+}
+textarea {
+	height: 100px;
+	overflow: auto;
+}
+@im: '../images/';
+@sp: '../images/sprite.png';
+.hover-underline() {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.rgba(@red, @green, @blue, @opacity) {
+	background: rgb(@red, @green, @blue);
+	background: rgba(@red, @green, @blue, @opacity);
+}
+.transition(@string) {
+	-webkit-transition: @string;
+	-moz-transition: @string;
+	-o-transition: @string;
+	transition: @string;
+}
+.transform(@string) {
+	-webkit-transform: @string;
+	-moz-transform: @string;
+	-ms-transform: @string;
+	-o-transform: @string;
+	transform: @string;
+}
+.filter(@string) {
+	-webkit-filter: @string;
+	-moz-filter: @string;
+	-ms-filter: @string;
+	-o-filter: @string;
+	filter: @string;
+}
+.transform-transition(@time) {
+	-webkit-transition: -webkit-transform @time;
+	-moz-transition: -moz-transform @time;
+	-ms-transition: -ms-transform @time;
+	-o-transition: -o-transform @time;
+	transition: transform @time;
+}
+.filter-transition(@time) {
+	-webkit-transition: -webkit-filter @time;
+	-moz-transition: -moz-filter @time;
+	-ms-transition: -ms-filter @time;
+	-o-transition: -o-filter @time;
+	transition: filter @time;
+}
+.gradient(@start: white, @end: black) {
+	background: @start;
+	background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+	background: -ms-linear-gradient(top, @start 0%, @end 100%);
+	background: -o-linear-gradient(top, @start 0%, @end 100%);
+	background: linear-gradient(to bottom, @start 0%, @end 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}', GradientType=0);
+}
+.opacity(@opacity) {
+	opacity: @opacity;
+	@msopacity: @opacity * 100;
+	filter: ~'alpha(opacity=@{msopacity})';
+}
+.bshadow(@string) {
+	-webkit-box-shadow: @string;
+	box-shadow: @string;
+}
+.cols(@string) {
+	-webkit-column-count: @string;
+	-moz-column-count: @string;
+	column-count: @string;
+}
+.col-break(@string) {
+	-webkit-column-break-inside: @string;
+	-moz-column-break-inside: @string;
+	-ms-column-break-inside: @string;
+	-o-column-break-inside: @string;
+	column-break-inside: @string;
+}
+.perspective(@distance) {
+	-webkit-perspective: @distance;
+	-moz-perspective: @distance;
+	perspective: @distance;
+}
+.perspective-origin(@string) {
+	-webkit-perspective-origin: @string;
+	-moz-perspective-origin: @string;
+	perspective-origin: @string;
+}
+.triangle-up(@color, @height, @leftSide, @rightSide) {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: @color transparent;
+	border-width: 0 @rightSide @height @leftSide;
+}
+.triangle-right(@color, @height, @leftSide, @rightSide) {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: @color transparent;
+	border-width: @leftSide 0 @rightSide @height;
+}
+.triangle-down(@color, @height, @leftSide, @rightSide) {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: @color transparent;
+	border-width: @height @rightSide 0 @leftSide;
+}
+.triangle-left(@color, @height, @leftSide, @rightSide) {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: @color transparent;
+	border-width: @rightSide @height @leftSide 0;
+}
+.image-container(@width) {
+	width: @width;
+	overflow: hidden;
+	img {
+		margin: 0 auto;
+		max-width: 100%;
+	}
+}
+.center() {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+::-webkit-search-cancel-button {
+	margin-left: 5px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+::-webkit-search-decoration {
+	display: none;
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	min-width: 991px;
+	margin: 0;
+	font: 15px/1.5 'PFDinDisplayPro';
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+}
+.disabled {
+	.opacity(.4) !important;
+	cursor: default !important;
+}
+.inactive {
+	.opacity(0) !important;
+	cursor: default !important;
+}
+.dn {
+	display: none !important;
+}
+.db {
+	display: block !important;
+}
+.no-transition {
+	.transition(none) !important;
+}
+.quick-transition {
+	.transition(ease-out 300ms) !important;
+}
+.clr {
+	clear: both;
+	display: block;
+}
+.clearfix:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.inner-wrapper {
+	width: 961px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.resize-bg {
+	overflow: hidden;
+	position: relative;
+	img {
+		width: 100%;
+		height: auto;
+		.transition(opacity 200ms);
+		opacity: 0;
+		position: relative;
+		&.vertical {
+			height: 100%;
+			width: auto;
+		}
+		&.loaded {
+			opacity: 1;
+		}
+	}
+}
+.text-container {
+	color: #444;
+	p {
+		margin: 15px 0;
+	}
+	img {
+		display: inline;
+		margin: 10px 20px 10px 0;
+		&.align-left {
+			float: left;
+		}
+		&.align-right {
+			float: right;
+			margin: 10px 0 10px 20px;
+		}
+	}
+	object {
+		margin-bottom: 30px;
+	}
+}
+.wrapper {
+	position: relative;
+	min-height: 100%;
+}
+.no-transition() {
+	.transition(none) !important;
+}
+.card-container {
+	.center();
+	width: 142px;
+	height: 191px;
+	.perspective(2000);
+}
+.card {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	height: 189px;
+	width: 140px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	-webkit-transform-style: preserve-3d;
+	.transition(all 300ms);
+	&.gtfo {
+		opacity: 0;
+		visibility: hidden;
+	}
+	b {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background-image: url(../images/cards.jpg);
+		.transform(rotateY(180deg));
+		border-radius: 10px;
+	}
+	i {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background: url(../images/cards.jpg) 0 -9880px;
+		border-radius: 10px;
+	}
+}
